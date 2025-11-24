@@ -30,16 +30,21 @@ public class MyThread extends Thread {
 
             //parts = [0] -> metodo, [1] -> path, [2] -> versione
             String[] parts = first_line.split(" ");
-
             String content_type = "text/html; charset=UTF-8";
             String server_name = "APserver";
-            String content = "HI - I'M AN HTML PAGE";
-            int content_lng = content.length();
+            String content = "";
 
-            out.println(parts[2] + " 200 OK");
+            if(parts[1].equals("/ciao")){
+                content = "HI - I'M AN HTML PAGE";
+                out.println(parts[2] + " 200 OK");
+            }else{
+                content = "404 - PAGE NOT FOUND";
+                out.println(parts[2] + " 404 NOT FOUND");
+            }
+
             out.println("Content-Type:" + content_type);
             out.println("Server:" + server_name);
-            out.println("Content-Length:" + content_lng);
+            out.println("Content-Length:" + content.length());
             out.println("");
             out.println(content);
             
