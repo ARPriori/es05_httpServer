@@ -1,3 +1,5 @@
+//curl - postman - insomnia
+
 package it.priori;
 
 import java.io.BufferedReader;
